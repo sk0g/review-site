@@ -1,4 +1,3 @@
-<br>
 <div id="nav-bar" align="center">
        Item1
      | Item2

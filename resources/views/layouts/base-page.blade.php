@@ -11,9 +11,9 @@
 </head>
 
 <body>
+    @include('layouts/nav-bar')
+
     @yield('body')
-    <br> <br>
-    @extends('layouts/nav-bar')
 </body>
 
 </html>
