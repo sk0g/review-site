@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test_db', function() {
+    $sql = "SELECT * FROM item";
+    $items = DB::select($sql);
+    dump($items);
+});
