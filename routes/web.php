@@ -33,6 +33,13 @@ Route::get('/test_db', function() {
     dump($items);
 });
 
+Route::get('/delete_item/{id}', function($id) {
+    delete_album($id);
+    delete_reviews_for_post($id);
+
+    return redirect('/');
+});
+
 function get_all_albums() {
     // Returns all albums from the database
     $sql = "SELECT * FROM albums, artists WHERE albums.artist_id = artists.id";
@@ -44,13 +51,25 @@ function get_album_details($id) {
     // Returns album details
     $sql = "SELECT * FROM albums, artists
             WHERE albums.artist_id = artists.id
-            AND album_id=$id";
-    return DB::select($sql);
+            AND album_id=?";
+    return DB::select($sql, array($id));
 }
 
 function get_album_reviews($id) {
     // Returns the reviews for an album
     $sql = "SELECT * FROM reviews
-            WHERE album_id=$id";
-    return DB::select($sql);
+            WHERE album_id=?";
+    return DB::select($sql, array($id));
+}
+
+function delete_album($id) {
+    // Deletes the album with a specific id
+    $sql = "DELETE FROM albums WHERE album_id=?";
+    DB::delete($sql, array($id));
+}
+
+function delete_reviews_for_post($id) {
+    // Deletes the reviews for a specific album
+    $sql = "DELETE FROM reviews WHERE album_id=?";
+    DB::delete($sql, array($id));
 }

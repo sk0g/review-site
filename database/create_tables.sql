@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS albums;
 CREATE TABLE albums (
-    album_id              integer         not null    primary key autoincrement,
+    album_id        integer         not null    primary key autoincrement,
     artist_id       integer         not null,
     album_name      varchar(80)     not null,
     genre           text            not null,
@@ -37,6 +37,9 @@ INSERT INTO artists VALUES(NULL, "Insomnium", "Finland");
 INSERT INTO artists VALUES(NULL, "Eluveitie", "Switzerland");
 INSERT INTO artists VALUES(NULL, "Swallow the Sun", "Finland");
 INSERT INTO artists VALUES(NULL, "Enslaved", "Norway");
+
+
+
 
 DROP TABLE IF EXISTS reviews;
 CREATE TABLE reviews (
