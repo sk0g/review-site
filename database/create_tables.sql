@@ -47,28 +47,38 @@ CREATE TABLE reviews (
     comment     text        not null
 );
 
-INSERT INTO reviews VALUES(NULL, "Varg", 4, 1, "Could do with more drums if I'm being honest, but still a great album.");
-INSERT INTO reviews VALUES(NULL, "Frost", 2, 1, "A flute? In my metal?! No way.");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
-INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "Mikko", 5, 1, "Album of the year surely?!");
+INSERT INTO reviews VALUES(NULL, "Henry", 4, 1, "Jawdropping");
+
+INSERT INTO reviews VALUES(NULL, "Frost", 4, 2, "Gets a little drawn out at times, but a solid album.");
+INSERT INTO reviews VALUES(NULL, "Teemu", 5, 2, "WHOA");
+
+INSERT INTO reviews VALUES(NULL, "Johan", 5, 3, "Surprisingly brutal, delightfully cold.");
+INSERT INTO reviews VALUES(NULL, "Sven", 4, 3, "I would like to hear more growls on the next album");
+
+INSERT INTO reviews VALUES(NULL, "", , 4, "");
+INSERT INTO reviews VALUES(NULL, "", , 4, "");
+
+INSERT INTO reviews VALUES(NULL, "Varg", 4, 5, "Could do with more drums if I'm being honest, but still a great album.");
+INSERT INTO reviews VALUES(NULL, "Frost", 2, 5, "A flute? In my metal?! No way.");
+
+INSERT INTO reviews VALUES(NULL, "", , 6, "");
+INSERT INTO reviews VALUES(NULL, "", , 6, "");
+
+INSERT INTO reviews VALUES(NULL, "", , 7, "");
+INSERT INTO reviews VALUES(NULL, "", , 7, "");
+
+INSERT INTO reviews VALUES(NULL, "", , 8, "");
+INSERT INTO reviews VALUES(NULL, "", , 8, "");
+
+INSERT INTO reviews VALUES(NULL, "", , 9, "");
+INSERT INTO reviews VALUES(NULL, "", , 9, "");
+
+INSERT INTO reviews VALUES(NULL, "", , 10, "");
+INSERT INTO reviews VALUES(NULL, "", , 10, "");
+
+INSERT INTO reviews VALUES(NULL, "", , 11, "");
+INSERT INTO reviews VALUES(NULL, "", , 11, "");
+
+INSERT INTO reviews VALUES(NULL, "", , 12, "");
+INSERT INTO reviews VALUES(NULL, "", , 12, "");
