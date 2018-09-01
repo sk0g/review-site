@@ -46,3 +46,29 @@ CREATE TABLE reviews (
     album_id    integer     not null,
     comment     text        not null
 );
+
+INSERT INTO reviews VALUES(NULL, "Varg", 4, 1, "Could do with more drums if I'm being honest, but still a great album.");
+INSERT INTO reviews VALUES(NULL, "Frost", 2, 1, "A flute? In my metal?! No way.");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");
+INSERT INTO reviews VALUES(NULL, "", , , "");

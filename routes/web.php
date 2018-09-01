@@ -21,6 +21,9 @@ Route::get('/album_details/{id}', function($id) {
     $album_details = get_album_details($id);
     $album_reviews = get_album_reviews($id);
 
+    return view('album_details')
+        ->withDetails($album_details[0])
+        ->withReviews($album_reviews);
 });
 
 Route::get('/test_db', function() {
