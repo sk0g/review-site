@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS albums;
 CREATE TABLE albums (
-    id              integer         not null    primary key autoincrement,
+    album_id              integer         not null    primary key autoincrement,
     artist_id       integer         not null,
     album_name      varchar(80)     not null,
     genre           text            not null,

@@ -9,15 +9,15 @@
 @if ($albums)
     <ul>
         @foreach ($albums as $item)
-        <li>
-            <a href="www.stupid-link.com"
+        <a href="list_detail_{{ $item->album_id }}">
+            <li>
                 <div class="album">
                     <img src="{{ $item->album_art }}" height="167" width="167">
                     <h3>{{ $item->album_name }}</h3>
                     <p>{{ $item->name }}</p>
                 </div>
-            </a>
-        </li>
+            </li>
+        </a>
         @endforeach
     </ul>
 @else No albums found
