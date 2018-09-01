@@ -21,7 +21,7 @@ INSERT INTO albums VALUES(NULL, 3, "Songs From the North", "Doom metal", 2007, "
 INSERT INTO albums VALUES(NULL, 3, "New Moon", "Doom metal", 2009, "http://swallowthesun.net/images/6aef020c.album-moon.jpg");
 INSERT INTO albums VALUES(NULL, 3, "Hope", "Doom metal", 2007, "http://www.metalmusicarchives.com/images/covers/swallow-the-sun-hope.jpg");
 
-INSERT INTO albums VALUES(NULL, 4, "E", "Progressive Black metal", 2017, "http://enslaved.no/wp-content/uploads/2016/02/Ruun.jpg");
+INSERT INTO albums VALUES(NULL, 4, "E", "Progressive Black metal", 2017, "http://enslaved.no/wp-content/uploads/2017/08/Enslaved-E.jpg");
 INSERT INTO albums VALUES(NULL, 4, "RUUN", "Black metal", 2017, "http://enslaved.no/wp-content/uploads/2016/02/Ruun.jpg");
 
 

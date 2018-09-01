@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    margin: 20px;
+}
+
+ul {
+    list-style-type: none;
+    width: 500px;
+}
+
+h3 {
+    font: bold 20px/1.5 Roboto serif;
+}
+
+li img {
+    float: left;
+    margin: 0 5% 0 0;
+}
+
+li p {
+    font: 200 12px/1.5 Roboto, serif;
+}
+
+li {
+    padding: 25px;
+    overflow: auto;
+}
+
+li:hover {
+    background: #eee;
+    cursor: pointer;
+}

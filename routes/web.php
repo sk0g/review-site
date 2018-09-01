@@ -12,11 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $albums = get_all_albums();
+    return view('welcome')
+        ->withAlbums($albums);
 });
 
 Route::get('/test_db', function() {
-    $sql = "SELECT * FROM albums";
+    $sql = "SELECT * FROM albums, artists WHERE albums.artist_id = artists.id";
     $items = DB::select($sql);
     dump($items);
 });
+
+function get_all_albums() {
+    $sql = "SELECT * FROM albums, artists WHERE albums.artist_id = artists.id";
+    $albums = DB::select($sql);
+    return $albums;
+}
