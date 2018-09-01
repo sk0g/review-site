@@ -9,7 +9,7 @@
 @if ($albums)
     <ul>
         @foreach ($albums as $item)
-        <a href="list_detail_{{ $item->album_id }}">
+        <a href="/album_details/{{ $item->album_id }}">
             <li>
                 <div class="album">
                     <img src="{{ $item->album_art }}" height="167" width="167">

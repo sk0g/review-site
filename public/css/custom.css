@@ -55,6 +55,6 @@ a:active {
 #nav-bar {
     background: #fff;
     background-color: #fff;
-    cursor: pointer;
+    cursor: auto;
     color: red;
 }

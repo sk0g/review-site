@@ -17,6 +17,12 @@ Route::get('/', function () {
         ->withAlbums($albums);
 });
 
+Route::get('/album_details/{id}', function($id) {
+    $album_details = get_album_details($id);
+    $album_reviews = get_album_reviews($id);
+
+});
+
 Route::get('/test_db', function() {
     // Dumps the database, to verify db functionality
     $sql = "SELECT * FROM albums, artists WHERE albums.artist_id = artists.id";
@@ -29,4 +35,19 @@ function get_all_albums() {
     $sql = "SELECT * FROM albums, artists WHERE albums.artist_id = artists.id";
     $albums = DB::select($sql);
     return $albums;
+}
+
+function get_album_details($id) {
+    // Returns album details
+    $sql = "SELECT * FROM albums, artists
+            WHERE albums.artist_id = artists.id
+            AND album_id=$id";
+    return DB::select($sql);
+}
+
+function get_album_reviews($id) {
+    // Returns the reviews for an album
+    $sql = "SELECT * FROM reviews
+            WHERE album_id=$id";
+    return DB::select($sql);
 }

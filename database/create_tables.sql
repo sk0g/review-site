@@ -37,3 +37,12 @@ INSERT INTO artists VALUES(NULL, "Insomnium", "Finland");
 INSERT INTO artists VALUES(NULL, "Eluveitie", "Switzerland");
 INSERT INTO artists VALUES(NULL, "Swallow the Sun", "Finland");
 INSERT INTO artists VALUES(NULL, "Enslaved", "Norway");
+
+DROP TABLE IF EXISTS reviews;
+CREATE TABLE reviews (
+    id          integer     not null    primary key autoincrement,
+    name        varchar(40) not null,
+    score       integer     not null    CHECK (score >= 1 AND score <= 5),
+    album_id    integer     not null,
+    comment     text        not null
+);
