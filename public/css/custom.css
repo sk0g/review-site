@@ -5,11 +5,11 @@
 
 ul {
     list-style-type: none;
-    width: 500px;
+    width: 600px;
 }
 
 h3 {
-    font: bold 20px/1.5 Roboto serif;
+    font: bold 20px/1.5 Helvetica sans-serif;
 }
 
 li img {
@@ -18,7 +18,7 @@ li img {
 }
 
 li p {
-    font: 200 12px/1.5 Roboto, serif;
+    font: 200 15px/1.5 Roboto, serif;
 }
 
 li {
@@ -29,4 +29,25 @@ li {
 li:hover {
     background: #eee;
     cursor: pointer;
+}
+
+a:link {
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #ddd;
+    color: darkslategray;
+}
+
+a:visited {
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #ddd;
+    color: darkslategray;
+}
+
+a:active {
+    text-decoration: underline;
+    font-weight: bold;
+    background-color: black;
+    color: darkslategray;
 }

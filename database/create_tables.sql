@@ -17,12 +17,12 @@ INSERT INTO albums VALUES(NULL, 2, "Origins", "Folk metal", 2014, "http://www.gh
 INSERT INTO albums VALUES(NULL, 2, "Helvetios", "Folk metal", 2012, "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Eluveitie_Helvetios.jpg/1024px-Eluveitie_Helvetios.jpg");
 INSERT INTO albums VALUES(NULL, 2, "Slania", "Folk metal", 2007, "https://pre00.deviantart.net/5081/th/pre/i/2014/237/7/7/eluveitie___slania__rematered_cover__by_stygiansaviour-d7wneae.png");
 
-INSERT INTO albums VALUES(NULL, 3, "Songs From the North", "Doom metal", 2007, "http://swallowthesun.net/images/148570ce.album-sftn.jpg");
+INSERT INTO albums VALUES(NULL, 3, "Songs From the North", "Doom metal", 2017, "http://swallowthesun.net/images/148570ce.album-sftn.jpg");
 INSERT INTO albums VALUES(NULL, 3, "New Moon", "Doom metal", 2009, "http://swallowthesun.net/images/6aef020c.album-moon.jpg");
 INSERT INTO albums VALUES(NULL, 3, "Hope", "Doom metal", 2007, "http://www.metalmusicarchives.com/images/covers/swallow-the-sun-hope.jpg");
 
 INSERT INTO albums VALUES(NULL, 4, "E", "Progressive Black metal", 2017, "http://enslaved.no/wp-content/uploads/2017/08/Enslaved-E.jpg");
-INSERT INTO albums VALUES(NULL, 4, "RUUN", "Black metal", 2017, "http://enslaved.no/wp-content/uploads/2016/02/Ruun.jpg");
+INSERT INTO albums VALUES(NULL, 4, "RUUN", "Black metal", 2006, "http://enslaved.no/wp-content/uploads/2016/02/Ruun.jpg");
 
 
 

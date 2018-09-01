@@ -13,7 +13,7 @@
             <li>
                 <div class="album">
                     <img src="{{ $item->album_art }}" height="167" width="167">
-                    <h3>{{ $item->album_name }}</h3>
+                    <h3>{{ $item->album_name }} ({{$item->release_year}})</h3>
                     <p>{{ $item->name }}</p>
                 </div>
             </li>
