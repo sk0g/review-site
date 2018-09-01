@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test_db', function() {
-    $sql = "SELECT * FROM item";
+    $sql = "SELECT * FROM albums";
     $items = DB::select($sql);
     dump($items);
 });
