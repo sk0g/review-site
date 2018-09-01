@@ -18,12 +18,14 @@ Route::get('/', function () {
 });
 
 Route::get('/test_db', function() {
+    // Dumps the database, to verify db functionality
     $sql = "SELECT * FROM albums, artists WHERE albums.artist_id = artists.id";
     $items = DB::select($sql);
     dump($items);
 });
 
 function get_all_albums() {
+    // Returns all albums from the database
     $sql = "SELECT * FROM albums, artists WHERE albums.artist_id = artists.id";
     $albums = DB::select($sql);
     return $albums;
