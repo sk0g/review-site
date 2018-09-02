@@ -17,6 +17,13 @@ h2 {
     color: goldenrod;
 }
 
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font: xx-large Helvetica;
+    color: black;
+}
+
 li img {
     float: left;
     margin: 0 5% 0 0;
@@ -82,4 +89,21 @@ a.btn {
 a.btn:hover {
     color: #FFF;
     background-color: #000;
+}
+
+.album-art {
+    margin-top: 50px;
+    float: right;
+    height: 333px;
+    width: 333px;
+    clear: both;
+}
+
+.album-details {
+    text-align: left;
+    font-size: 20px;
+}
+
+.reviews {
+    clear: both;
 }

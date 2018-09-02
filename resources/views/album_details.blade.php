@@ -7,23 +7,37 @@
 @endsection
 
 @section('body')
-    @foreach ($reviews as $review)
-        <a href='/edit_review/{{ $review->id}}'>
-            <h2>
-                {{ $review->name }}
-                {{-- Display the relevant number of filled/ unfilled stars --}}
-                @for ($i = 1; $i <= 5; $i++)
-                    @if ($i <= $review->score)
-                        ⛧
-                    @endif
-                @endfor
-            </h2>
-            <em>
-                {{ $review->comment }}
-            </em>
-        </a>
-        <br>
-    @endforeach
+    <img src="{{ $details->album_art }}" alt="Album Art" class="album-art"/>
+
+    <h1> {{ $details->album_name }} </h1> <br>
+    <div class="album-details">
+        Artist: <b>{{ $details->name }}</b> <br>
+        Country: <b>{{ $details->country }}</b> <br>
+        Genre: <b>{{ $details->genre }}</b> <br>
+        Year of Release: <b>{{ $details->release_year }}</b> <br>
+        Reviews: <b>TODO</b> <br>
+        Average User Rating: <b>TODO</b>
+    </div>
+
+    <div class="reviews">
+        @foreach ($reviews as $review)
+            <a href='/edit_review/{{ $review->id}}'>
+                <h2>
+                    {{ $review->name }}
+                    {{-- Display the relevant number of filled/ unfilled stars --}}
+                    @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= $review->score)
+                            ⛧
+                        @endif
+                    @endfor
+                </h2>
+                <em>
+                    {{ $review->comment }}
+                </em>
+            </a>
+            <br>
+        @endforeach
+    </div>
 
     <br>
 
