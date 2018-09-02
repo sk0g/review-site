@@ -60,14 +60,9 @@ Route::get('/edit_review/{id}', function($id) {
 });
 
 Route::get('/edit_album/{id}', function($id) {
-    $review = get_review($id);
-    return view('add_review')
-        ->withReview($review)
-        ->withAlbumId($review->album_id);
-
-    $item = get_item($id);
-    return view('add_item')
-        ->withItem($item);
+    $album = get_album_details($id)[0];
+    return view('/add_album')
+        ->withAlbum($album);
 });
 
 Route::get('/most_reviewed', function() {
@@ -97,6 +92,10 @@ Route::get('/band_albums/{id}', function($id) {
         ->withAlbums($albums);
 });
 
+Route::get('/add_album', function() {
+    return view('/add_album');
+});
+
 Route::get('/documentation', function() {
     return view('documentation');
 });
@@ -116,6 +115,25 @@ Route::post('/add_review', function() {
     }
 });
 
+
+Route::post('/add_album', function() {
+    $artist_name = request()->name;
+
+    $artist_id = attempt_fetching_artist_id($artist_name);
+    if ($artist_id == false) {
+        return redirect('/')
+            ->withAlert("Artist not found. Adding new artists isn't currently supported");
+    } else {
+        $add_album_status = process_new_album_request(request()->all());
+        if ($add_album_status) {
+            return redirect('/')
+                ->withAlert("Album added!");
+        } else {
+            return redirect('/')
+                ->withAlert('Album failed to add. Did you fill in all the fields properly?');
+        }
+    }
+});
 
 function get_review_count($id) {
     // Returns the number of reviews an album has
@@ -156,7 +174,6 @@ function get_review($id) {
 }
 
 function process_review_request($req) {
-    //
     // id, album_id, Name, Comment
     // ->id is possibly null, have to check for that
 
@@ -219,6 +236,7 @@ function get_most_reviewed_albums() {
 }
 
 function get_best_reviewed_albums() {
+    // Return albums with the highest average review score
     $sql = "SELECT artists.name, release_year, album_art, albums.album_id, album_name, AVG(reviews.score) AS average_score, COUNT(reviews.id) AS 'count'
             FROM albums
                 LEFT JOIN reviews on albums.album_id = reviews.album_id
@@ -242,4 +260,71 @@ function get_albums_for_artist($id) {
             WHERE albums.artist_id = artists.id
             AND artists.id = ?";
     return DB::select($sql, array($id));
+}
+
+function attempt_fetching_artist_id($name) {
+    // Tries to return the artist's id, else returns false, given an artist's name
+    $sql = "SELECT id
+            FROM artists
+            WHERE name = ?";
+    $result = DB::select($sql, array($name));
+
+    if ($result == null) {
+        return false;
+    } else {
+        return $result[0]->id;
+    }
+}
+
+function process_new_album_request($values) {
+    // Try to add a new album. If failed, return false, else return true
+    /*  "album_id" => "1"
+        "name" => "Insomnium"
+        "album_name" => "Winter's Gate"
+        "genre" => "Melodic death metal"
+        "release_year" => "2016"
+        "album_art" => "https://i0.wp.com/www.empireextreme.com/wp-content/uploads/2016/06/insomniumwintersgatecdnew.jpg"
+    */
+    $artist_name = $values['name'];
+    $album_name = $values['album_name'];
+    $genre = $values['genre'];
+    $release_year = $values['release_year'];
+    $album_art = $values['album_art'];
+
+    // If any fields are null, can't add into database. Return early.
+    if ($album_name == null ||
+        $artist_name == null ||
+        $genre == null ||
+        $release_year == null ||
+        $album_art == null) {
+        return false;
+    }
+
+    // If artist id number is not found, can't add into database. Return early.
+    $artist_id = attempt_fetching_artist_id($artist_name);
+    if ($artist_id == null) {
+        return false;
+    }
+
+    $sql = "SELECT album_id
+            FROM albums
+            WHERE artist_id = ?
+            AND album_name = ?";
+    $matches = DB::select($sql, array($artist_id, $album_name));
+    // If already in database, update instead
+    if ($matches >= 1 and $matches != null) {
+        $sql = "UPDATE albums
+                SET album_name = ?, genre = ?, release_year = ?, album_art = ?
+                WHERE album_id = ?";
+        DB::update($sql, array($album_name, $genre, $release_year, $album_art, $matches[0]->album_id));
+        return true;
+    }
+
+    // Else create a new entry
+    else {
+        $sql = "INSERT INTO albums VALUES(NULL,
+                ?, ?, ?, ?, ?)";
+        DB::insert($sql, array($artist_id, $album_name, $genre, $release_year, $album_art));
+        return true;
+    }
 }
