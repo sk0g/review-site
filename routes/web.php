@@ -70,6 +70,14 @@ Route::get('/edit_album/{id}', function($id) {
         ->withItem($item);
 });
 
+Route::get('/most_reviewed', function() {
+    $albums = get_most_reviewed_albums();
+    dump($albums);
+    return view('most_reviewed')
+        ->withCriteria("Reviews: ")
+        ->withAlbums($albums);
+});
+
 Route::post('/add_review', function() {
     $album_id = request()->album_id;
     $review_status = process_review_request(request()->all());
@@ -172,4 +180,14 @@ function delete_reviews_for_post($id) {
     // Deletes the reviews for a specific album
     $sql = "DELETE FROM reviews WHERE album_id=?";
     DB::delete($sql, array($id));
+}
+
+function get_most_reviewed_albums() {
+    $sql = "SELECT artists.name, release_year, album_art, albums.album_id, album_name, COUNT(*) as count
+            FROM albums, reviews, artists
+            WHERE reviews.album_id = albums.album_id
+            AND artists.id = albums.artist_id
+            GROUP BY album_name
+            ORDER BY count DESC";
+    return DB::select($sql);
 }
