@@ -56,32 +56,23 @@ INSERT INTO reviews VALUES(NULL, "Henry", 4, 1, "Jawdropping");
 INSERT INTO reviews VALUES(NULL, "Frost", 4, 2, "Gets a little drawn out at times, but a solid album.");
 INSERT INTO reviews VALUES(NULL, "Teemu", 5, 2, "WHOA");
 
+INSERT INTO reviews VALUES(NULL, "Frost", 5, 3, "Made me cry, would listen to again.");
 INSERT INTO reviews VALUES(NULL, "Johan", 5, 3, "Surprisingly brutal, delightfully cold.");
 INSERT INTO reviews VALUES(NULL, "Sven", 4, 3, "I would like to hear more growls on the next album");
 
-INSERT INTO reviews VALUES(NULL, "", , 4, "");
-INSERT INTO reviews VALUES(NULL, "", , 4, "");
+INSERT INTO reviews VALUES(NULL, "Skog", 4, 4, "A bit different, but groovy nevertheless.");
+INSERT INTO reviews VALUES(NULL, "Adam", 1, 4, "Is this even metal?!");
 
 INSERT INTO reviews VALUES(NULL, "Varg", 4, 5, "Could do with more drums if I'm being honest, but still a great album.");
 INSERT INTO reviews VALUES(NULL, "Frost", 2, 5, "A flute? In my metal?! No way.");
 
-INSERT INTO reviews VALUES(NULL, "", , 6, "");
-INSERT INTO reviews VALUES(NULL, "", , 6, "");
+INSERT INTO reviews VALUES(NULL, "Teemu", 5, 6, "Folk metal doesn't get much better than this.");
 
-INSERT INTO reviews VALUES(NULL, "", , 7, "");
-INSERT INTO reviews VALUES(NULL, "", , 7, "");
+INSERT INTO reviews VALUES(NULL, "Sven", 4, 8, "Amazing start to finish, though it goes for 3 hours!");
 
-INSERT INTO reviews VALUES(NULL, "", , 8, "");
-INSERT INTO reviews VALUES(NULL, "", , 8, "");
+INSERT INTO reviews VALUES(NULL, "Varg", 5, 9, "Is this what having a heart attack feels like?!");
 
-INSERT INTO reviews VALUES(NULL, "", , 9, "");
-INSERT INTO reviews VALUES(NULL, "", , 9, "");
+INSERT INTO reviews VALUES(NULL, "Adam", 4, 10, "This is sick! Listening to more of their stuff now.");
+INSERT INTO reviews VALUES(NULL, "Sk0g", 2, 10, "I 'hope' the next album is better. heh.");
 
-INSERT INTO reviews VALUES(NULL, "", , 10, "");
-INSERT INTO reviews VALUES(NULL, "", , 10, "");
-
-INSERT INTO reviews VALUES(NULL, "", , 11, "");
-INSERT INTO reviews VALUES(NULL, "", , 11, "");
-
-INSERT INTO reviews VALUES(NULL, "", , 12, "");
-INSERT INTO reviews VALUES(NULL, "", , 12, "");
+INSERT INTO reviews VALUES(NULL, "Frost", 5, 11, "äter du fisk?");

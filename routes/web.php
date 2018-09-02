@@ -72,7 +72,6 @@ Route::get('/edit_album/{id}', function($id) {
 
 Route::get('/most_reviewed', function() {
     $albums = get_most_reviewed_albums();
-    dump($albums);
     return view('most_reviewed')
         ->withCriteria("Reviews: ")
         ->withAlbums($albums);
@@ -183,11 +182,12 @@ function delete_reviews_for_post($id) {
 }
 
 function get_most_reviewed_albums() {
-    $sql = "SELECT artists.name, release_year, album_art, albums.album_id, album_name, COUNT(*) as count
-            FROM albums, reviews, artists
-            WHERE reviews.album_id = albums.album_id
-            AND artists.id = albums.artist_id
-            GROUP BY album_name
+    $sql = "SELECT artists.name, release_year, album_art, albums.album_id, album_name, COUNT(reviews.id) AS 'count'
+            FROM albums
+                LEFT JOIN reviews on albums.album_id = reviews.album_id
+                LEFT JOIN artists on albums.artist_id = artists.id
+            WHERE artists.id = albums.artist_id
+            GROUP BY albums.album_id
             ORDER BY count DESC";
     return DB::select($sql);
 }
