@@ -1,8 +1,5 @@
 @extends('layouts/base-page')
 @section('scripts')
-    <style>
-        input{width: 600px};
-    </style>
 @endsection
 
 @section('title')
