@@ -85,6 +85,18 @@ Route::get('/best_albums', function() {
         ->withAlbums($albums);
 });
 
+Route::get('/bands', function() {
+    $bands = get_bands();
+    return view('bands')
+        ->withBands($bands);
+});
+
+Route::get('/band_albums/{id}', function($id) {
+    $albums = get_albums_for_artist($id);
+    return view('welcome')
+        ->withAlbums($albums);
+});
+
 Route::post('/add_review', function() {
     $album_id = request()->album_id;
     $review_status = process_review_request(request()->all());
@@ -210,4 +222,19 @@ function get_best_reviewed_albums() {
             GROUP BY albums.album_id
             ORDER BY average_score DESC";
     return DB::select($sql);
+}
+
+function get_bands() {
+    // Get all bands
+    $sql = "SELECT *
+            FROM artists";
+    return DB::select($sql);
+}
+
+function get_albums_for_artist($id) {
+    // Get all albums of a specific artist
+    $sql = "SELECT * FROM albums, artists
+            WHERE albums.artist_id = artists.id
+            AND artists.id = ?";
+    return DB::select($sql, array($id));
 }
