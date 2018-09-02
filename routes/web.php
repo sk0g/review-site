@@ -56,8 +56,14 @@ Route::get('/edit_review/{id}', function($id) {
 
 Route::post('/add_review', function() {
     $album_id = request()->album_id;
-    process_review_request(request()->all());
-    return redirect("/album_details/$album_id");
+    $review_status = process_review_request(request()->all());
+    if ($review_status == "update") {
+        return redirect("/album_details/$album_id")
+            ->withAlert("You have already reviewed this. Updating review.");
+    } else {
+        return redirect("/album_details/$album_id")
+            ->withAlert("Review added.");
+    }
 });
 
 function get_all_albums() {
@@ -106,19 +112,21 @@ function process_review_request($req) {
             AND name = ?";
     $matches = DB::select($sql, array($album_id, $name));
     // update the entry if it does
-    if ($matches >= 1) {
+    if ($matches >= 1 and $matches != null) {
         $sql = "UPDATE reviews
                 SET id = ?, name = ?, score = ?,
                 album_id = ?, comment = ?
                 WHERE name = ? and album_id = ?";
         DB::update($sql, array($matches[0]->id, $name, $score, $album_id,
                                $comment, $name, $album_id));
+        return "update";
     }
     // create a new entry otherwise
     else {
         $sql = "INSERT INTO reviews VALUES(NULL,
-                ?, ?, ?, ?";
+                ?, ?, ?, ?)";
         DB::insert($sql, array($name, $score, $album_id, $comment));
+        return "new";
     }
 }
 
