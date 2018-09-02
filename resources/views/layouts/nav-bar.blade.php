@@ -4,4 +4,5 @@
      | <a class="nav-item" href="/bands">Bands</a>
      | <a class="nav-item" href="/most_reviewed">Most Reviewed</a>
      | <a class="nav-item" href="/best_albums">Best Albums</a>
+     | <a class="nav-item" href="/documentation">Documentation</a>
 </div>

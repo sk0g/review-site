@@ -97,6 +97,10 @@ Route::get('/band_albums/{id}', function($id) {
         ->withAlbums($albums);
 });
 
+Route::get('/documentation', function() {
+    return view('documentation');
+});
+
 Route::post('/add_review', function() {
     $album_id = request()->album_id;
     $review_status = process_review_request(request()->all());
@@ -111,6 +115,7 @@ Route::post('/add_review', function() {
             ->withAlert("Review added.");
     }
 });
+
 
 function get_review_count($id) {
     // Returns the number of reviews an album has
