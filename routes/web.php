@@ -77,6 +77,14 @@ Route::get('/most_reviewed', function() {
         ->withAlbums($albums);
 });
 
+Route::get('/best_albums', function() {
+    $albums = get_best_reviewed_albums();
+    return view('best_reviewed')
+        ->withCriteria("Reviews: ")
+        ->withCriteria2("Average Rating: ")
+        ->withAlbums($albums);
+});
+
 Route::post('/add_review', function() {
     $album_id = request()->album_id;
     $review_status = process_review_request(request()->all());
@@ -182,6 +190,7 @@ function delete_reviews_for_post($id) {
 }
 
 function get_most_reviewed_albums() {
+    // Return a list with all albums, alongside the number of reviews for each of them
     $sql = "SELECT artists.name, release_year, album_art, albums.album_id, album_name, COUNT(reviews.id) AS 'count'
             FROM albums
                 LEFT JOIN reviews on albums.album_id = reviews.album_id
@@ -189,5 +198,16 @@ function get_most_reviewed_albums() {
             WHERE artists.id = albums.artist_id
             GROUP BY albums.album_id
             ORDER BY count DESC";
+    return DB::select($sql);
+}
+
+function get_best_reviewed_albums() {
+    $sql = "SELECT artists.name, release_year, album_art, albums.album_id, album_name, AVG(reviews.score) AS average_score, COUNT(reviews.id) AS 'count'
+            FROM albums
+                LEFT JOIN reviews on albums.album_id = reviews.album_id
+                LEFT JOIN artists on albums.artist_id = artists.id
+            WHERE artists.id = albums.artist_id
+            GROUP BY albums.album_id
+            ORDER BY average_score DESC";
     return DB::select($sql);
 }
