@@ -131,3 +131,13 @@ a.btn:hover {
 .reviews {
     clear: both;
 }
+
+.nav-item {
+    margin: 5px;
+    padding: 10px;
+    text-align: justify;
+}
+
+.nav-item:hover {
+    color: red;
+}

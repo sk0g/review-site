@@ -20,10 +20,15 @@ Route::get('/', function () {
 Route::get('/album_details/{id}', function($id) {
     $album_details = get_album_details($id);
     $album_reviews = get_album_reviews($id);
+    $album_review_data = get_review_count($id);
+    $review_count = $album_review_data->count;
+    $review_average = $album_review_data->score;
 
     return view('album_details')
         ->withDetails($album_details[0])
-        ->withReviews($album_reviews);
+        ->withReviews($album_reviews)
+        ->withReviewCount($review_count)
+        ->withReviewAverage($review_average);
 });
 
 Route::get('/test_db', function() {
@@ -54,6 +59,17 @@ Route::get('/edit_review/{id}', function($id) {
         ->withAlbumId($review->album_id);
 });
 
+Route::get('/edit_album/{id}', function($id) {
+    $review = get_review($id);
+    return view('add_review')
+        ->withReview($review)
+        ->withAlbumId($review->album_id);
+
+    $item = get_item($id);
+    return view('add_item')
+        ->withItem($item);
+});
+
 Route::post('/add_review', function() {
     $album_id = request()->album_id;
     $review_status = process_review_request(request()->all());
@@ -68,6 +84,14 @@ Route::post('/add_review', function() {
             ->withAlert("Review added.");
     }
 });
+
+function get_review_count($id) {
+    // Returns the number of reviews an album has
+    $sql = "SELECT count(id) as count, avg(score) as score
+            FROM reviews
+            WHERE album_id = $id";
+    return DB::select($sql)[0];
+}
 
 function get_all_albums() {
     // Returns all albums from the database

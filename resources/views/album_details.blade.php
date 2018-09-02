@@ -16,8 +16,8 @@
         Country: <b>{{ $details->country }}</b> <br>
         Genre: <b>{{ $details->genre }}</b> <br>
         Year of Release: <b>{{ $details->release_year }}</b> <br>
-        Reviews: <b>TODO</b> <br>
-        Average User Rating: <b>TODO</b>
+        Reviews: <b>{{ $reviewCount }}</b> <br>
+        Average User Rating: <b>{{ $reviewAverage }}</b>
     </div>
 
     <div class="reviews">
@@ -48,7 +48,7 @@
     <a class="btn" href="/delete_item/{{ $details->album_id }}">
         Delete Album
     </a>
-    <a class="btn" href="/edit_item/{{ $details->album_id }}">
+    <a class="btn" href="/edit_album/{{ $details->album_id }}">
         Edit Album
     </a>
 @endsection
