@@ -60,6 +60,9 @@ Route::post('/add_review', function() {
     if ($review_status == "update") {
         return redirect("/album_details/$album_id")
             ->withAlert("You have already reviewed this. Updating review.");
+    } elseif ($review_status == "invalid") {
+        return redirect("/album_details/$album_id")
+            ->withAlert("Please fill out all fields before submitting.");
     } else {
         return redirect("/album_details/$album_id")
             ->withAlert("Review added.");
@@ -106,6 +109,11 @@ function process_review_request($req) {
     $score    = $req['score'];
     $comment  = $req['Comment'];
     $name     = $req['Name'];
+
+    // if the fields are null, return early as we can't add into the database
+    if ($name == null || $score == null || $comment == null) {
+        return "invalid";
+    }
     $sql = "SELECT id
             FROM reviews
             WHERE album_id = ?
