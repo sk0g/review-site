@@ -28,7 +28,9 @@ Route::get('/album_details/{id}', function($id) {
 
 Route::get('/test_db', function() {
     // Dumps the database, to verify db functionality
-    $sql = "SELECT * FROM albums, artists WHERE albums.artist_id = artists.id";
+    $sql = "SELECT * FROM albums, artists, reviews
+            WHERE albums.artist_id = artists.id
+            AND reviews.album_id = albums.album_id";
     $items = DB::select($sql);
     dump($items);
 });
@@ -38,6 +40,22 @@ Route::get('/delete_item/{id}', function($id) {
     delete_reviews_for_post($id);
 
     return redirect('/');
+});
+
+Route::get('/add_review/{id}', function($id) {
+    return view('add_review')
+        ->withAlbumId($album_id);
+});
+
+Route::get('/edit_review/{id}', function($id) {
+    $review = get_review($id);
+    return view('add_review')
+        ->withReview($review)
+        ->withAlbumId($review->album_id);
+});
+
+Route::post('/add_review', function() {
+    dump(request()->all());
 });
 
 function get_all_albums() {
@@ -60,6 +78,14 @@ function get_album_reviews($id) {
     $sql = "SELECT * FROM reviews
             WHERE album_id=?";
     return DB::select($sql, array($id));
+}
+
+function get_review($id) {
+    // Returns a specific review, given an id
+    $sql = "SELECT * FROM reviews
+            WHERE id = ?";
+    $review = DB::select($sql, array($id));
+    return $review[0];
 }
 
 function delete_album($id) {
