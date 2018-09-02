@@ -74,7 +74,7 @@ a:active {
 a.btn {
     display: inline-block;
     padding: 0.35em 1.2em;
-    border: 0.1em solid #FFFFFF;
+    border: 0.1em solid goldenrod;
     margin: 0 0.3em 0.3em 0;
     border-radius: 0.12em;
     box-sizing: border-box;
@@ -87,12 +87,36 @@ a.btn {
 }
 
 a.btn:hover {
-    color: #FFF;
+    border-color: black;
+    font-weight: 500;
+    color: gold;
+    background-color: #000;
+}
+
+.button_btn {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid goldenrod;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #000;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.button_btn:hover {
+    border-color: black;
+    font-weight: 500;
+    color: gold;
     background-color: #000;
 }
 
 .album-art {
-    margin-top: 50px;
+    margin-right: 20px;
     float: right;
     height: 333px;
     width: 333px;

@@ -7,6 +7,7 @@
 @endsection
 
 @section('body')
+    <br> <br>
     <img src="{{ $details->album_art }}" alt="Album Art" class="album-art"/>
 
     <h1> {{ $details->album_name }} </h1> <br>
@@ -42,9 +43,12 @@
     <br>
 
     <a class="btn" href="/add_review/{{ $details->album_id }}">
-        Add a review
+        Add Review
     </a>
     <a class="btn" href="/delete_item/{{ $details->album_id }}">
-        Delete this album
+        Delete Album
+    </a>
+    <a class="btn" href="/edit_item/{{ $details->album_id }}">
+        Edit Album
     </a>
 @endsection

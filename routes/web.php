@@ -106,14 +106,14 @@ function process_review_request($req) {
 
     // check if entry with album_id and name exists
     $album_id = $req['album_id'];
-    $score    = $req['score'];
     $comment  = $req['Comment'];
     $name     = $req['Name'];
-
     // if the fields are null, return early as we can't add into the database
-    if ($name == null || $score == null || $comment == null) {
+    if ($name == null || $comment == null || !array_key_exists('score', $req)) {
         return "invalid";
     }
+
+    $score    = $req['score'];
     $sql = "SELECT id
             FROM reviews
             WHERE album_id = ?

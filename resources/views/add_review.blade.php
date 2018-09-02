@@ -40,6 +40,6 @@
             <textarea name="Comment" cols="50" rows="4">@if (isset($review)){{ $review->comment }}@endif</textarea>
             <br> <br>
 
-        <button type="submit" class="btn">Submit Review</button>
+        <button type="submit" class="button_btn">Submit Review</button>
     </form>
 @endsection
