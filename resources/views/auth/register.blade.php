@@ -40,6 +40,34 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="dob" type="date" class="form-control{{ $errors->has('dob') ? ' is-invalid' : '' }}" name="dob" required>
+
+                                @if ($errors->has('dob'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('dob') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="is_mod" class="col-md-6 col-form-label text-md-right">{{ __('User is moderator') }}</label>
+
+                            <div class="col-md-2">
+                                <input id="is_mod" type="checkbox" class="form-control{{ $errors->has('is_mod') ? ' is-invalid' : '' }}" name="is_mod" required>
+
+                                @if ($errors->has('is_mod'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('is_mod') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

@@ -19,9 +19,15 @@ Route::get('/login', function() {
     return view('login');
 });
 
+Route::get('/create_album', function() {
+    return view('create_album');
+});
+
 Route::get('/register', function() {
     return view('register');
 });
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/add_album', 'AlbumController@store');
