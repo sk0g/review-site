@@ -98,19 +98,19 @@ class ReviewsTableSeeder extends Seeder
         DB::table('reviews')->insert([
             'name'=>"Adam",
             'score'=>4,
-            'album_id'=>10
+            'album_id'=>10,
             'comment'=> "This is sick! Listening to more of their stuff now."
         ]);
         DB::table('reviews')->insert([
             'name'=>"Sk0g",
             'score'=>2,
-            'album_id'=>10
+            'album_id'=>10,
             'comment'=> "I 'hope' the next album is better. heh."
         ]);
         DB::table('reviews')->insert([
             'name'=>"Frost",
             'score'=>5,
-            'album_id'=>11
+            'album_id'=>11,
             'comment'=> "äter du fisk?"
         ]);
     }
